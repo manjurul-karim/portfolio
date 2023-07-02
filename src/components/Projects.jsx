@@ -1,37 +1,26 @@
 import React from "react";
 import arrayDestruct from "../assets/projects/arrayDestruct.jpg";
-import installNode from "../assets/projects/installNode.jpg";
 import navbar from "../assets/projects/navbar.jpg";
 import reactParallax from "../assets/projects/reactParallax.jpg";
-import reactSmooth from "../assets/projects/reactSmooth.jpg";
-import reactWeather from "../assets/projects/reactWeather.jpg";
-
-
 const Projects = () => {
   const projects = [
     {
       id: 1,
       src: arrayDestruct,
+      demo: "https://a12-languagefluent-client.web.app/",
+      code: "https://github.com/manjurul-karim/language-fluent",
     },
     {
       id: 2,
       src: reactParallax,
+      demo: "https://a10-hot-toys-505eb.web.app/",
+      code: "https://github.com/manjurul-karim/hot-toys-client",
     },
     {
       id: 3,
       src: navbar,
-    },
-    {
-      id: 4,
-      src: reactSmooth,
-    },
-    {
-      id: 5,
-      src: installNode,
-    },
-    {
-      id: 6,
-      src: reactWeather,
+      demo: "https://assignment-10-e978e.web.app/",
+      code: "https://github.com/manjurul-karim/chef-choice-client",
     },
   ];
 
@@ -40,7 +29,7 @@ const Projects = () => {
       name="projects"
       className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen"
     >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
+      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full md:h-screen">
         <div className="md:pt-24">
           <p className="text-4xl font-bold inline border-b-4 border-gray-500">
             Projects
@@ -49,7 +38,7 @@ const Projects = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {projects.map(({ id, src }) => (
+          {projects.map(({ id, src, demo, code }) => (
             <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
               <img
                 src={src}
@@ -57,12 +46,22 @@ const Projects = () => {
                 className="rounded-md duration-200 hover:scale-105"
               />
               <div className="flex items-center justify-center">
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
+                <a
+                  href={demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
+                >
                   Demo
-                </button>
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
+                </a>
+                <a
+                  href={code}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
+                >
                   Code
-                </button>
+                </a>
               </div>
             </div>
           ))}

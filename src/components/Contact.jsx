@@ -1,4 +1,29 @@
+import { useState, useEffect } from "react";
+import { animateScroll as scroll } from "react-scroll";
+import { FaArrowUp } from "react-icons/fa";
+
 const Contact = () => {
+  const [showGoToTop, setShowGoToTop] = useState(false);
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 200) {
+      setShowGoToTop(true);
+    } else {
+      setShowGoToTop(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const goToTop = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <div
       name="contact"
@@ -42,6 +67,15 @@ const Contact = () => {
             </button>
           </form>
         </div>
+
+        {showGoToTop && (
+          <button
+            className="fixed bottom-4 right-4 bg-blue-500 text-white rounded-full p-3 flex items-center justify-center hover:bg-blue-700 duration-300"
+            onClick={goToTop}
+          >
+            <FaArrowUp size={20} />
+          </button>
+        )}
       </div>
     </div>
   );
