@@ -1,4 +1,19 @@
+import React, { useEffect } from "react";
+import { Typewriter } from "react-simple-typewriter";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const About = () => {
+  const words = [
+    "MERN Stack Web Developer",
+    "Frontend Developer",
+    "Web Developer",
+  ];
+
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
     <div
       id="about"
@@ -6,33 +21,68 @@ const About = () => {
       className="w-full h-screen bg-gradient-to-b from-gray-800 to-black text-white"
     >
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-        <div className="pt-24">
-          <p className="text-4xl font-bold border-b-4 border-gray-500 inline">
+        <div className="pb-8">
+          <p className="text-4xl font-bold inline border-b-4 border-blue-500">
             About
           </p>
         </div>
 
-        <div>
-          <div>
-            <p className="text-xl pt-4">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius,
-              deserunt illum mollitia officiis qui exercitationem perferendis
-              neque quasi a recusandae necessitatibus tempora iusto! Blanditiis
-              error iste, totam fugiat recusandae rerum laborum perferendis
-              molestiae aperiam asperiores nemo. Magni dolor maxime debitis
-              vitae, eaque hic ab mollitia voluptatibus, a nostrum eveniet
-              laborum!
-            </p>
-          </div>
-          <div>
-            <p className="text-xl mb-20 ">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-              pariatur, vel similique sint, nobis aspernatur ut praesentium
-              explicabo ipsam aliquid quasi laboriosam et culpa possimus
-              repudiandae quisquam ullam maiores ab unde. Fugiat odio mollitia
-              nemo alias. Commodi facilis atque nulla vero voluptatem explicabo.
-              Quibusdam, magni quo! Eum cupiditate debitis labore.
-            </p>
+        <div className="lg:mt-20 lg:grid grid-cols-2 gap-20">
+          <p
+            data-aos="fade-right"
+            className="text-desc-color lg:text-lg text-justify"
+          >
+            I am Manjurul Karim is skilled MERN stack web developer with
+            expertise in ReactJS and familiar with MongoDB, Express.js, Node.js,
+            and various other technologies related to JavaScript. With a passion
+            for crafting dynamic and interactive web applications, I'm creative,
+            proficient in every project, and committed to delivering
+            high-quality, efficient, and user-friendly solutions.
+          </p>
+          <div data-aos="fade-left" className="space-y-4 lg:mt-0 mt-4">
+            <h3 className="lg:text-2xl text-lg font-black">
+              I am a{" "}
+              <span className="text-blue-500">
+                <Typewriter
+                  words={words}
+                  loop={0}
+                  cursor={true}
+                  cursorColor="#004AAD"
+                />
+              </span>
+            </h3>
+            <ul className="list-disc list-inside space-y-3">
+              <li className="my-list relative">
+                <strong className="inline-block lg:min-w-[120px] min-w-[100px] font-medium">
+                  Name
+                </strong>
+                : Manjurul Karim
+              </li>
+              <li className="my-list relative">
+                <strong className="inline-block lg:min-w-[120px] min-w-[100px] font-medium">
+                  Age
+                </strong>
+                : 28 years
+              </li>
+              <li className="my-list relative">
+                <strong className="inline-block lg:min-w-[120px] min-w-[100px] font-medium">
+                  Nationality
+                </strong>
+                : Bangladesh
+              </li>
+              <li className="my-list relative">
+                <strong className="inline-block lg:min-w-[120px] min-w-[100px] font-medium">
+                  Language
+                </strong>
+                : Bengali, English
+              </li>
+              <li className="my-list relative">
+                <strong className="inline-block lg:min-w-[120px] min-w-[100px] font-medium">
+                  Address
+                </strong>
+                : Barishal, Bangladesh
+              </li>
+            </ul>
           </div>
         </div>
       </div>
